@@ -1,3 +1,5 @@
+@import "mixins";
+
 .container {
   padding: 0 2rem;
 }
@@ -19,6 +21,9 @@
   border-top: 1px solid #eaeaea;
   justify-content: center;
   align-items: center;
+  img {
+    margin-left: 0.5rem;
+  }
 }
 
 .footer a {
@@ -28,16 +33,16 @@
   flex-grow: 1;
 }
 
-.title a {
-  color: #0070f3;
-  text-decoration: none;
-}
+// .title a {
+//   color: #0070f3;
+//   text-decoration: none;
+// }
 
-.title a:hover,
-.title a:focus,
-.title a:active {
-  text-decoration: underline;
-}
+// .title a:hover,
+// .title a:focus,
+// .title a:active {
+//   text-decoration: underline;
+// }
 
 .title {
   margin: 0;
@@ -50,10 +55,16 @@
   text-align: center;
 }
 
+$color-primary: blueviolet;
+
 .description {
   margin: 4rem 0;
   line-height: 1.5;
   font-size: 1.5rem;
+}
+.description text.bold {
+  font-weight: bold;
+  color: $color-primary;
 }
 
 .code {
@@ -71,6 +82,10 @@
   justify-content: center;
   flex-wrap: wrap;
   max-width: 800px;
+  @include desktop() {
+    width: 100%;
+    flex-direction: column;
+  }
 }
 
 .card {
@@ -88,8 +103,8 @@
 .card:hover,
 .card:focus,
 .card:active {
-  color: #0070f3;
-  border-color: #0070f3;
+  color: $color-primary;
+  border-color: $color-primary;
 }
 
 .card h2 {
@@ -106,13 +121,6 @@
 .logo {
   height: 1em;
   margin-left: 0.5rem;
-}
-
-@media (max-width: 600px) {
-  .grid {
-    width: 100%;
-    flex-direction: column;
-  }
 }
 
 @media (prefers-color-scheme: dark) {
