@@ -1,0 +1,15 @@
+
+$light-colors: orangered, hotpink, orange, greenyellow, seagreen;
+$dark-colors: maroon, olive, steelblue, teal, darkslateblue;
+
+@mixin bg-color-light($ind) {
+    background: lighten(nth($light-colors, $ind), 15%);
+}
+
+@mixin bg-color-dark($ind) {
+    background: darken(nth($dark-colors, $ind), 15%);
+}
+
+:export {
+    colorsCount: length($light-colors);
+}
