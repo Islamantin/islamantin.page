@@ -1,0 +1,47 @@
+@import "_shadows";
+
+.introduction {
+  display: flex;
+  .intro.text {
+    margin-right: 2rem;
+    .title {
+      padding-bottom: 2rem;
+      font-size: 5rem;
+    }
+  }
+  .intro.image {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    @include shadow(3);
+  }
+  @media (max-width: 768px) {
+    flex-direction: column-reverse;
+    .intro.image {
+      width: 350px;
+      height: 350px;
+    }
+    .intro.text {
+      margin: 0;
+      width: 100%;
+    }
+    .intro {
+      margin-bottom: 2rem;
+      align-self: center;
+    }
+  }
+//   @media (min-width: 1200px) {
+//     .intro.image {
+//         width: 500px;
+//         height: 500px;
+//       }
+//     .intro.text {
+//       .title {
+//         font-size: 10em;
+//       }
+//       .description {
+//         font-size: 3em;
+//       }
+//     }
+//   }
+}
