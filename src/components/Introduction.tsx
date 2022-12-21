@@ -2,30 +2,29 @@ import Image from "next/image";
 
 import styles from "../styles/Introduction.module.scss";
 
-export default function Introduction() {
-  return (
-    <div className={styles.introduction}>
-      <div className={styles.intro + " " + styles.text}>
-        <h1 className={styles.title}>Салям</h1>
+interface IntroductionComponentProps {
+  className: string
+}
 
-        <h2 className={styles.description}>
-          My name is <text>Islam</text>.
+export default function Introduction(props: IntroductionComponentProps) {
+  return (
+    <div className={props.className + " " + styles.intro}>
+      <div className={styles.text}>
+        <h1 className={styles.title}>Салям</h1>
+        <p>
+          My name is Islam.
           <br />
           I'm Software Engineer <br />
           and Designer.
-        </h2>
+        </p>
       </div>
-      <div className={styles.intro + " " + styles.image}>
+      <div className={styles.image}>
         <Image
           src="/me.jpg"
           fill
-          sizes="(max-width: 768px) 350px,
-            (min-width: 768px) 250px,
-            (min-width: 1200px) 1000px"
           alt="It's me"
         ></Image>
       </div>
-      {/* <img src="/profilepic.png" alt="it's me"></img> */}
     </div>
   );
 }

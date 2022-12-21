@@ -1,12 +1,13 @@
 import Head from "next/head";
 import sanityClient from "@sanity/client";
 import imageUrlBuilder from "@sanity/image-url";
+import { useEffect } from "react";
 
 import sanityConfig from "../config/sanity.config";
 
 import colors from "../styles/_colors.module.scss";
-import { useEffect } from "react";
-import Main from "../components/Main";
+
+import Main, { MainComponentData } from "../components/Main";
 
 const client = sanityClient(sanityConfig);
 const imageBuilder = imageUrlBuilder(client);
@@ -15,31 +16,44 @@ function buildImage(source: any) {
   return imageBuilder.image(source);
 }
 
-let colorsCount = -1;
+let bgColorInd = -1;
 
-export default function Home(data: any) {
+function setRandomBackgroundColor() {
+  if (bgColorInd > -1) return;
+  const colorsCount = +colors.colorsCount;
+  bgColorInd = Math.floor(Math.random() * colorsCount + 1);
+  const body = document.getElementsByTagName("body")[0];
+  const classes: string[] = [];
+  for (let i = 1; i < colorsCount + 1; i++) {
+    classes.push("bgColor" + i);
+  }
+  body.classList.remove(...classes);
+  body.classList.add("bgColor" + bgColorInd);
+}
+
+interface HomePageProps {
+  data: {
+    about: object[],
+    posts: object[]
+  }
+}
+
+export default function Home(props: HomePageProps) {
   useEffect(() => {
-    if (colorsCount > -1) return;
-    colorsCount = +colors.colorsCount;
-    const colorInd = Math.floor(Math.random() * colorsCount + 1);
-    const body = document.getElementsByTagName("body")[0];
-    const classes: string[] = [];
-    for (let i = 1; i < colorsCount + 1; i++) {
-      classes.push("bgColor" + i);
-    }
-    body.classList.remove(...classes);
-    body.classList.add("bgColor" + colorInd);
+    setRandomBackgroundColor();
   });
-  console.log(data);
-  const posts = data.posts;
+  const data = props.data;
+  const mainData: MainComponentData = {
+    about: data.about[0],
+    posts: data.posts
+  }
   return (
     <>
       <Head>
         <title>Islam Antin</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <Main />
+      <Main data={mainData} />
     </>
   );
 }
@@ -50,6 +64,8 @@ export async function getServerSideProps() {
     "posts": *[_type == "post"]
   }`);
   return {
-    props: result,
+    props: {
+      data: result
+    },
   };
 }

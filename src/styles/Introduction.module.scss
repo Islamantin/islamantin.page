@@ -1,47 +1,69 @@
 @import "_shadows";
 
-.introduction {
+.intro {
   display: flex;
-  .intro.text {
-    margin-right: 2rem;
-    .title {
-      padding-bottom: 2rem;
-      font-size: 5rem;
-    }
-  }
-  .intro.image {
+  .image {
     position: relative;
     width: 250px;
     height: 250px;
     @include shadow(3);
   }
+  .text {
+    margin-right: 3rem;
+    .title {
+      padding-bottom: 1rem;
+      font-size: 5rem;
+    }
+    p {
+      font-size: 1.5rem;
+    }
+  }
+
+
   @media (max-width: 768px) {
     flex-direction: column-reverse;
-    .intro.image {
-      width: 350px;
-      height: 350px;
+    .image {
+      width: 500px;
+      height: 500px;
     }
-    .intro.text {
+    .text {
       margin: 0;
       width: 100%;
     }
-    .intro {
-      margin-bottom: 2rem;
+    div {
+      margin-bottom: 1rem;
       align-self: center;
     }
   }
-//   @media (min-width: 1200px) {
-//     .intro.image {
-//         width: 500px;
-//         height: 500px;
-//       }
-//     .intro.text {
-//       .title {
-//         font-size: 10em;
-//       }
-//       .description {
-//         font-size: 3em;
-//       }
-//     }
-//   }
+  @media (max-width: 660px) {
+    .image {
+      width: 200px;
+      height: 200px;
+    }
+    .text {
+      .title {
+        padding-bottom: 0.5rem;
+        font-size: 2.5rem;
+      }
+      p {
+        font-size: 1rem;
+      }
+    }
+  }
+  @media (min-width: 1800px) {
+    .image {
+      width: 500px;
+      height: 500px;
+    }
+    .text {
+      margin-right: 6rem;
+      .title {
+        padding-bottom: 4rem;
+        font-size: 10rem;
+      }
+      p {
+        font-size: 3rem;
+      }
+    }
+  }
 }
