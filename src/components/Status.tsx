@@ -40,7 +40,14 @@ function renderLocation(location?: string) {
     </p>
   );
   if (location && location.length > 0) {
-    result = <p>I'm in {location}</p>;
+    result = (
+      <p>
+        I'm in {location}{" "}
+        <span role="img" aria-label="pin">
+          📌
+        </span>
+      </p>
+    );
   }
   return result;
 }
@@ -55,7 +62,7 @@ function renderEmployment(employment?: any) {
     </p>
   );
   if (employment) {
-    const name = employment.organisationName;
+    const name = employment.lable;
     const link = employment.link;
     if (name && name.length > 0) {
       result = <p>Working with {name}</p>;

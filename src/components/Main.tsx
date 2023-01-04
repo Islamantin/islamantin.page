@@ -1,4 +1,5 @@
 import styles from "../styles/Main.module.scss";
+import ContactDetails, { ContactDetailsData } from "./ContactDetails";
 
 import Introduction from "./Introduction";
 import Status, { StatusComponentData } from "./Status";
@@ -23,10 +24,12 @@ export default function Main(props: MainComponentProps) {
     location: aboutData?.location,
     employment: aboutData?.currentEmployment
   }
+  const contactDetailsData: ContactDetailsData[] = aboutData?.contactDetails;
   return (
     <main className={styles.main}>
       <Introduction className={styles.block} />
       <Status className={styles.block} data={statusData} />
+      <ContactDetails className={styles.block} data={contactDetailsData} />
       {/* <div className={styles.breakline} /> */}
 
       {/*<div className={styles.grid}>
