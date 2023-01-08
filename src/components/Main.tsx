@@ -1,4 +1,5 @@
 import styles from "../styles/Main.module.scss";
+import ContactDetails, { ContactDetailsData } from "./ContactDetails";
 
 import Introduction from "./Introduction";
 import Status, { StatusComponentData } from "./Status";
@@ -6,27 +7,29 @@ import Status, { StatusComponentData } from "./Status";
 import { useEffect } from "react";
 
 interface MainComponentProps {
-  data: MainComponentData
+  data: MainComponentData;
 }
 
 export interface MainComponentData {
-  about?: any,
-  posts?: any[]
+  about?: any;
+  posts?: any[];
 }
 
 export default function Main(props: MainComponentProps) {
   useEffect(() => {
-    console.log(props.data);
+    // console.log(props.data);
   }, [props.data]);
   const aboutData = props.data.about;
   const statusData: StatusComponentData = {
     location: aboutData?.location,
-    employment: aboutData?.currentEmployment
-  }
+    employment: aboutData?.currentEmployment,
+  };
+  const contactDetailsData: ContactDetailsData[] = aboutData?.contactDetails;
   return (
     <main className={styles.main}>
       <Introduction className={styles.block} />
       <Status className={styles.block} data={statusData} />
+      <ContactDetails className={styles.block} data={contactDetailsData} />
       {/* <div className={styles.breakline} /> */}
 
       {/*<div className={styles.grid}>
@@ -42,6 +45,15 @@ export default function Main(props: MainComponentProps) {
               );
             })} 
       </div>*/}
+      <div>
+        <a
+          href="https://github.com/Islamantin/islamantin.page"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src="github-1.svg" alt="github" title="Chek out GitHub repository of this page" />
+        </a>
+      </div>
     </main>
   );
 }

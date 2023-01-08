@@ -1,6 +1,6 @@
 
-$light-colors: orangered, hotpink, orange, greenyellow, seagreen;
-$dark-colors: maroon, olive, steelblue, teal, darkslateblue;
+$light-colors: orangered, hotpink, orange, limegreen, mediumpurple;
+$dark-colors: firebrick, forestgreen, steelblue, darkcyan, darkslateblue;
 
 @mixin bg-color-light($ind) {
     background: lighten(nth($light-colors, $ind), 15%);
