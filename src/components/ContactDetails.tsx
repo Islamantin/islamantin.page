@@ -13,7 +13,7 @@ export interface ContactDetailsData {
 
 export default function ContactDetails(props: ContactDetailsComponentProps) {
   useEffect(() => {
-    console.log(props.data);
+    // console.log(props.data);
   }, [props.data]);
   return (
     <div className={props.className + " " + styles.contactDetails} >

@@ -15,7 +15,7 @@ export interface StatusComponentData {
 
 export default function Status(props: StatusComponentProps) {
   useEffect(() => {
-    console.log(props.data);
+    // console.log(props.data);
   }, [props.data]);
   const data = props.data;
   return (
