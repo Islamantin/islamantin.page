@@ -4,8 +4,6 @@ import ContactDetails, { ContactDetailsData } from "./ContactDetails";
 import Introduction from "./Introduction";
 import Status, { StatusComponentData } from "./Status";
 
-import { useEffect } from "react";
-
 interface MainComponentProps {
   data: MainComponentData;
 }
@@ -16,9 +14,6 @@ export interface MainComponentData {
 }
 
 export default function Main(props: MainComponentProps) {
-  useEffect(() => {
-    // console.log(props.data);
-  }, [props.data]);
   const aboutData = props.data.about;
   const statusData: StatusComponentData = {
     location: aboutData?.location,
@@ -30,28 +25,13 @@ export default function Main(props: MainComponentProps) {
       <Introduction className={styles.block} />
       <Status className={styles.block} data={statusData} />
       <ContactDetails className={styles.block} data={contactDetailsData} />
-      {/* <div className={styles.breakline} /> */}
-
-      {/*<div className={styles.grid}>
-         {posts &&
-            posts.map((p: any, ind: number) => {
-              const image = buildImage(p.thumbnail).url();
-              return (
-                <a key={ind} href="#" className={styles.card}>
-                  <h2>{p.title}</h2>
-                  <img src={image} className={styles.image}></img>
-                </a>
-                //<PortableText value={p.content}></PortableText>
-              );
-            })} 
-      </div>*/}
       <div>
         <a
           href="https://github.com/Islamantin/islamantin.page"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img src="github-1.svg" alt="github" title="Chek out GitHub repository of this page" />
+          <img className={styles.svg} src="github-1.svg" alt="github" title="Chek out GitHub repository of this page" />
         </a>
       </div>
     </main>

@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import styles from "../styles/ContactDetails.module.scss";
 
 interface ContactDetailsComponentProps {
@@ -12,9 +11,6 @@ export interface ContactDetailsData {
 }
 
 export default function ContactDetails(props: ContactDetailsComponentProps) {
-  useEffect(() => {
-    // console.log(props.data);
-  }, [props.data]);
   return (
     <div className={props.className + " " + styles.contactDetails} >
       <h2>Contact me</h2>
