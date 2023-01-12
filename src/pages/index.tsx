@@ -11,9 +11,9 @@ import Main, { MainComponentData } from "../components/Main";
 const client = sanityClient(sanityConfig);
 
 function getRandomColor() {
-  const colorCollection = colors.colection.split(', ');
+  const colorCollection = colors.colection.split(',');
   const ind = Math.floor(Math.random() * colorCollection.length);
-  return colorCollection[ind];
+  return colorCollection[ind].trim();
 }
 
 interface HomePageProps {
