@@ -6,6 +6,7 @@ import Status, { StatusComponentData } from "./Status";
 
 interface MainComponentProps {
   data: MainComponentData;
+  color: string;
 }
 
 export interface MainComponentData {
@@ -19,21 +20,20 @@ export default function Main(props: MainComponentProps) {
     location: aboutData?.location,
     employment: aboutData?.currentEmployment,
   };
+  
   const contactDetailsData: ContactDetailsData[] = aboutData?.contactDetails;
   return (
     <main className={styles.main}>
-      <Introduction className={styles.block} />
-      <Status className={styles.block} data={statusData} />
-      <ContactDetails className={styles.block} data={contactDetailsData} />
-      <div>
-        <a
-          href="https://github.com/Islamantin/islamantin.page"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img className={styles.svg} src="github-1.svg" alt="github" title="Chek out GitHub repository of this page" />
-        </a>
-      </div>
+      <Introduction mainColor={props.color} />
+      <Status data={statusData} />
+      <ContactDetails data={contactDetailsData} />
+      <a
+        href="https://github.com/Islamantin/islamantin.page"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img className={styles.svg} src="github-1.svg" alt="github" title="Chek out GitHub repository of this page" />
+      </a>
     </main>
   );
 }

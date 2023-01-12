@@ -1,7 +1,7 @@
 import styles from "../styles/ContactDetails.module.scss";
 
 interface ContactDetailsComponentProps {
-  className: string;
+  className?: string;
   data?: ContactDetailsData[];
 }
 
@@ -11,8 +11,9 @@ export interface ContactDetailsData {
 }
 
 export default function ContactDetails(props: ContactDetailsComponentProps) {
+  const propsClassName = props.className ? (props.className + " ") : "";
   return (
-    <div className={props.className + " " + styles.contactDetails} >
+    <div className={propsClassName + styles.contactDetails} >
       <h2>Contact me</h2>
       <div className={styles.container}>
         {props.data?.map((val: ContactDetailsData, ind: number) => (

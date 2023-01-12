@@ -3,12 +3,20 @@ import Image from "next/image";
 import styles from "../styles/Introduction.module.scss";
 
 interface IntroductionComponentProps {
-  className: string
+  className?: string,
+  mainColor: string | null
 }
 
 export default function Introduction(props: IntroductionComponentProps) {
+  // const [nameStyles, setNameStyles] = useState(styles.name);
+  // useEffect(() => {
+  //   if (props.mainColor != null) {
+  //     setNameStyles(nameStyles + " color-" + props.mainColor);
+  //   }
+  // }, [props.mainColor]);
+  const propsClassName = props.className ? (props.className + " ") : "";
   return (
-    <div className={props.className + " " + styles.intro}>
+    <div className={propsClassName + styles.intro}>
       <div className={styles.text}>
         <h1 className={styles.title}>Салям</h1>
         <p>

@@ -1,4 +1,4 @@
-@import "colors.module";
+@use 'colors.module';
 
 * {
   box-sizing: border-box;
@@ -17,24 +17,10 @@ a {
   color: inherit;
 }
 
-body.bgColor1 {
-  @include bg-color-light(1);
-}
-
-body.bgColor2 {
-  @include bg-color-light(2);
-}
-
-body.bgColor3 {
-  @include bg-color-light(3);
-}
-
-body.bgColor4 {
-  @include bg-color-light(4);
-}
-
-body.bgColor5 {
-  @include bg-color-light(5);
+@each $color in colors.$collection {
+  body.bg-color-#{$color} {
+    @include colors.bg-color-light($color);
+  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -44,24 +30,10 @@ body.bgColor5 {
   body {
     color: white;
   }
-  body.bgColor1 {
-    @include bg-color-dark(1);
-  }
-
-  body.bgColor2 {
-    @include bg-color-dark(2);
-  }
-
-  body.bgColor3 {
-    @include bg-color-dark(3);
-  }
-
-  body.bgColor4 {
-    @include bg-color-dark(4);
-  }
-
-  body.bgColor5 {
-    @include bg-color-dark(5);
+  @each $color in colors.$collection {
+    body.bg-color-#{$color} {
+      @include colors.bg-color-dark($color);
+    }
   }
 }
 
