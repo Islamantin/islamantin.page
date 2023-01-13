@@ -1,4 +1,4 @@
-@import "_shadows";
+@import 'shadows';
 
 .intro {
   display: flex;
@@ -6,7 +6,7 @@
     position: relative;
     width: 250px;
     height: 250px;
-    @include shadow(3);
+    @include overall-shadow(3);
   }
   .text {
     margin-right: 3rem;
@@ -19,7 +19,22 @@
     }
   }
 
-
+  @media (min-width: 1800px) {
+    .image {
+      width: 500px;
+      height: 500px;
+    }
+    .text {
+      margin-right: 6rem;
+      .title {
+        padding-bottom: 4rem;
+        font-size: 10rem;
+      }
+      p {
+        font-size: 3rem;
+      }
+    }
+  }
   @media (max-width: 768px) {
     flex-direction: column-reverse;
     .image {
@@ -37,8 +52,8 @@
   }
   @media (max-width: 660px) {
     .image {
-      width: 200px;
-      height: 200px;
+      width: 300px;
+      height: 300px;
     }
     .text {
       .title {
@@ -50,20 +65,10 @@
       }
     }
   }
-  @media (min-width: 1800px) {
+  @media (max-width: 440px) {
     .image {
-      width: 500px;
-      height: 500px;
-    }
-    .text {
-      margin-right: 6rem;
-      .title {
-        padding-bottom: 4rem;
-        font-size: 10rem;
-      }
-      p {
-        font-size: 3rem;
-      }
+      width: 200px;
+      height: 200px;
     }
   }
 }

@@ -1,4 +1,4 @@
-@import "colors.module";
+@use 'colors.module';
 
 * {
   box-sizing: border-box;
@@ -6,10 +6,9 @@
 }
 
 body {
-  padding: 0 4rem;
+  padding: 0 3rem;
   margin: auto;
-  font-family: Unbounded, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans,
-    Droid Sans, Helvetica Neue, sans-serif;
+  font-family: Unbounded;
   color: black;
   transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
 }
@@ -18,24 +17,10 @@ a {
   color: inherit;
 }
 
-body.bgColor1 {
-  @include bg-color-light(1);
-}
-
-body.bgColor2 {
-  @include bg-color-light(2);
-}
-
-body.bgColor3 {
-  @include bg-color-light(3);
-}
-
-body.bgColor4 {
-  @include bg-color-light(4);
-}
-
-body.bgColor5 {
-  @include bg-color-light(5);
+@each $key, $color in colors.$collection {
+  body.bg-color-#{$key} {
+    @include colors.bg-color-light($color);
+  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -45,24 +30,10 @@ body.bgColor5 {
   body {
     color: white;
   }
-  body.bgColor1 {
-    @include bg-color-dark(1);
-  }
-
-  body.bgColor2 {
-    @include bg-color-dark(2);
-  }
-
-  body.bgColor3 {
-    @include bg-color-dark(3);
-  }
-
-  body.bgColor4 {
-    @include bg-color-dark(4);
-  }
-
-  body.bgColor5 {
-    @include bg-color-dark(5);
+  @each $key, $color in colors.$collection {
+    body.bg-color-#{$key} {
+      @include colors.bg-color-dark($color);
+    }
   }
 }
 

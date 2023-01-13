@@ -1,7 +1,6 @@
 import Head from "next/head";
 import sanityClient from "@sanity/client";
-import imageUrlBuilder from "@sanity/image-url";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import sanityConfig from "../config/sanity.config";
 
@@ -10,25 +9,11 @@ import colors from "../styles/_colors.module.scss";
 import Main, { MainComponentData } from "../components/Main";
 
 const client = sanityClient(sanityConfig);
-const imageBuilder = imageUrlBuilder(client);
 
-function buildImage(source: any) {
-  return imageBuilder.image(source);
-}
-
-let bgColorInd = -1;
-
-function setRandomBackgroundColor() {
-  if (bgColorInd > -1) return;
-  const colorsCount = +colors.colorsCount;
-  bgColorInd = Math.floor(Math.random() * colorsCount + 1);
-  const body = document.getElementsByTagName("body")[0];
-  const classes: string[] = [];
-  for (let i = 1; i < colorsCount + 1; i++) {
-    classes.push("bgColor" + i);
-  }
-  body.classList.remove(...classes);
-  body.classList.add("bgColor" + bgColorInd);
+function getRandomColorKey() {
+  const colorCollection = colors.keys.split(',');
+  const ind = Math.floor(Math.random() * colorCollection.length);
+  return colorCollection[ind].trim();
 }
 
 interface HomePageProps {
@@ -39,9 +24,15 @@ interface HomePageProps {
 }
 
 export default function Home(props: HomePageProps) {
+  const [mainColorKey, setMainColorKey] = useState<string | null>(null);
   useEffect(() => {
-    setRandomBackgroundColor();
-  });
+    if (mainColorKey == null) {
+      const colorKey = getRandomColorKey();
+      setMainColorKey(colorKey);
+      const body = document.getElementsByTagName("body")[0];
+      body.classList.add("bg-color-" + colorKey);
+    }
+  }, [props]);
   const data = props.data;
   const mainData: MainComponentData = {
     about: data.about[0],
@@ -53,7 +44,7 @@ export default function Home(props: HomePageProps) {
         <title>Islam Antin</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Main data={mainData} />
+      <Main data={mainData} colorKey={mainColorKey as string} />
     </>
   );
 }

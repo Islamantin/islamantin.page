@@ -38,7 +38,7 @@
    * @requires {function} top-shadow
    * @requires {function} bottom-shadow
    */
-  @mixin shadow($depth) {
+  @mixin overall-shadow($depth) {
     @if $depth < 1 {
       box-shadow: none;
     } @else if $depth > 5 {

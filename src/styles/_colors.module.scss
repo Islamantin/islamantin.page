@@ -1,15 +1,13 @@
+$collection: (one: hotpink, two: orange, three: limegreen, four: mediumpurple, five: cornflowerblue);
 
-$light-colors: orangered, hotpink, orange, limegreen, mediumpurple;
-$dark-colors: firebrick, forestgreen, steelblue, darkcyan, darkslateblue;
-
-@mixin bg-color-light($ind) {
-    background: lighten(nth($light-colors, $ind), 15%);
+@mixin bg-color-light($color) {
+    background: lighten($color, 15%);
 }
 
-@mixin bg-color-dark($ind) {
-    background: darken(nth($dark-colors, $ind), 15%);
+@mixin bg-color-dark($color) {
+    background: darken($color, 30%);
 }
 
 :export {
-    colorsCount: length($light-colors);
+    keys: map-keys($collection);
 }

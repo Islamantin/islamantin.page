@@ -1,10 +1,9 @@
-import { useEffect } from "react";
 import regex from "../utils/regex";
 
 import styles from "../styles/Status.module.scss";
 
 interface StatusComponentProps {
-  className: string;
+  className?: string;
   data?: StatusComponentData;
 }
 
@@ -14,12 +13,10 @@ export interface StatusComponentData {
 }
 
 export default function Status(props: StatusComponentProps) {
-  useEffect(() => {
-    // console.log(props.data);
-  }, [props.data]);
+  const propsClassName = props.className ? (props.className + " ") : "";
   const data = props.data;
   return (
-    <div className={props.className}>
+    <div className={propsClassName}>
       <h2>Currentely</h2>
       <br />
       <div className={styles.container}>
