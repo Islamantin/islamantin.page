@@ -4,16 +4,16 @@ import styles from "../styles/Introduction.module.scss";
 
 interface IntroductionComponentProps {
   className?: string,
-  mainColor: string | null
+  colorKey: string | null
 }
 
 export default function Introduction(props: IntroductionComponentProps) {
   // const [nameStyles, setNameStyles] = useState(styles.name);
   // useEffect(() => {
-  //   if (props.mainColor != null) {
-  //     setNameStyles(nameStyles + " color-" + props.mainColor);
+  //   if (props.colorKey != null) {
+  //     setNameStyles(nameStyles + " color-" + props.colorKey);
   //   }
-  // }, [props.mainColor]);
+  // }, [props.colorKey]);
   const propsClassName = props.className ? (props.className + " ") : "";
   return (
     <div className={propsClassName + styles.intro}>

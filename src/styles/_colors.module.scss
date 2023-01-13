@@ -1,5 +1,4 @@
-
-$collection: hotpink, orange, limegreen, mediumpurple, cornflowerblue;
+$collection: (one: hotpink, two: orange, three: limegreen, four: mediumpurple, five: cornflowerblue);
 
 @mixin bg-color-light($color) {
     background: lighten($color, 15%);
@@ -10,5 +9,5 @@ $collection: hotpink, orange, limegreen, mediumpurple, cornflowerblue;
 }
 
 :export {
-    colection: $collection;
+    keys: map-keys($collection);
 }

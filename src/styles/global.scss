@@ -17,8 +17,8 @@ a {
   color: inherit;
 }
 
-@each $color in colors.$collection {
-  body.bg-color-#{$color} {
+@each $key, $color in colors.$collection {
+  body.bg-color-#{$key} {
     @include colors.bg-color-light($color);
   }
 }
@@ -30,8 +30,8 @@ a {
   body {
     color: white;
   }
-  @each $color in colors.$collection {
-    body.bg-color-#{$color} {
+  @each $key, $color in colors.$collection {
+    body.bg-color-#{$key} {
       @include colors.bg-color-dark($color);
     }
   }

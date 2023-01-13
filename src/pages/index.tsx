@@ -10,8 +10,8 @@ import Main, { MainComponentData } from "../components/Main";
 
 const client = sanityClient(sanityConfig);
 
-function getRandomColor() {
-  const colorCollection = colors.colection.split(',');
+function getRandomColorKey() {
+  const colorCollection = colors.keys.split(',');
   const ind = Math.floor(Math.random() * colorCollection.length);
   return colorCollection[ind].trim();
 }
@@ -24,13 +24,13 @@ interface HomePageProps {
 }
 
 export default function Home(props: HomePageProps) {
-  const [mainColor, setMainColor] = useState<string | null>(null);
+  const [mainColorKey, setMainColorKey] = useState<string | null>(null);
   useEffect(() => {
-    if (mainColor == null) {
-      const color = getRandomColor();
-      setMainColor(color);
+    if (mainColorKey == null) {
+      const colorKey = getRandomColorKey();
+      setMainColorKey(colorKey);
       const body = document.getElementsByTagName("body")[0];
-      body.classList.add("bg-color-" + color);
+      body.classList.add("bg-color-" + colorKey);
     }
   }, [props]);
   const data = props.data;
@@ -44,7 +44,7 @@ export default function Home(props: HomePageProps) {
         <title>Islam Antin</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Main data={mainData} color={mainColor as string} />
+      <Main data={mainData} colorKey={mainColorKey as string} />
     </>
   );
 }

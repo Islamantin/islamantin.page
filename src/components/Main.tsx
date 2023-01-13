@@ -6,7 +6,7 @@ import Status, { StatusComponentData } from "./Status";
 
 interface MainComponentProps {
   data: MainComponentData;
-  color: string;
+  colorKey: string;
 }
 
 export interface MainComponentData {
@@ -24,7 +24,7 @@ export default function Main(props: MainComponentProps) {
   const contactDetailsData: ContactDetailsData[] = aboutData?.contactDetails;
   return (
     <main className={styles.main}>
-      <Introduction mainColor={props.color} />
+      <Introduction colorKey={props.colorKey} />
       <Status data={statusData} />
       <ContactDetails data={contactDetailsData} />
       <a
