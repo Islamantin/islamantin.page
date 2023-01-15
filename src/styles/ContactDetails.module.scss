@@ -2,11 +2,19 @@
 .contactDetails {
     width: 100%;
     text-align: center;
-    h2 {
-        margin: 1rem;
-    }
-    .container {
+    padding-top: 3rem;
+    > div {
         display: flex;
         justify-content: space-evenly;
+    }
+    @media (max-width: 550px) {
+        padding-top: 1.5rem;
+    }
+    @media (min-width: 1800px) {
+        > div {
+            a {
+                font-size: 3rem;
+            }
+        }
     }
 }

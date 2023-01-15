@@ -3,6 +3,7 @@ import ContactDetails, { ContactDetailsData } from "./ContactDetails";
 
 import Introduction from "./Introduction";
 import Status, { StatusComponentData } from "./Status";
+import Tools from "./Tools";
 
 interface MainComponentProps {
   data: MainComponentData;
@@ -20,11 +21,12 @@ export default function Main(props: MainComponentProps) {
     location: aboutData?.location,
     employment: aboutData?.currentEmployment,
   };
-  
+
   const contactDetailsData: ContactDetailsData[] = aboutData?.contactDetails;
   return (
     <main className={styles.main}>
       <Introduction colorKey={props.colorKey} />
+      {aboutData.tools ? <Tools data={aboutData.tools} /> : <></>}
       <Status data={statusData} />
       <ContactDetails data={contactDetailsData} />
       <a
@@ -32,7 +34,12 @@ export default function Main(props: MainComponentProps) {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <img className={styles.svg} src="github-1.svg" alt="github" title="Chek out GitHub repository of this page" />
+        <img
+          className={styles.svg}
+          src="github-1.svg"
+          alt="github"
+          title="Chek out GitHub repository of this page"
+        />
       </a>
     </main>
   );

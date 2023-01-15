@@ -16,12 +16,11 @@ export default function Status(props: StatusComponentProps) {
   const propsClassName = props.className ? (props.className + " ") : "";
   const data = props.data;
   return (
-    <div className={propsClassName}>
-      <h2>Currentely</h2>
-      <br />
-      <div className={styles.container}>
-        <div>{renderLocation(data?.location)}</div>
-        <div>{renderEmployment(data?.employment)}</div>
+    <div className={propsClassName + styles.status}>
+      <h2>Currently</h2>
+      <div>
+        {renderLocation(data?.location)}
+        {renderEmployment(data?.employment)}
       </div>
     </div>
   );
