@@ -18,7 +18,7 @@ export default function Introduction(props: IntroductionComponentProps) {
   return (
     <div className={propsClassName + styles.intro}>
       <div className={styles.text}>
-        <h1 className={styles.title}>Салям</h1>
+        <h1>Салям</h1>
         <p>
           My name is Islam.
           <br />

@@ -26,6 +26,7 @@ interface HomePageProps {
 export default function Home(props: HomePageProps) {
   const [mainColorKey, setMainColorKey] = useState<string | null>(null);
   useEffect(() => {
+    console.log(props.data.about);
     if (mainColorKey == null) {
       const colorKey = getRandomColorKey();
       setMainColorKey(colorKey);

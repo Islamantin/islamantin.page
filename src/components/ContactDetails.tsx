@@ -15,7 +15,7 @@ export default function ContactDetails(props: ContactDetailsComponentProps) {
   return (
     <div className={propsClassName + styles.contactDetails} >
       <h2>Contact me</h2>
-      <div className={styles.container}>
+      <div>
         {props.data?.map((val: ContactDetailsData, ind: number) => (
           <a
             key={ind}

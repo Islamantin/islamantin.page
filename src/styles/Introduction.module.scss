@@ -1,21 +1,26 @@
-@import 'shadows';
+@import "shadows";
 
 .intro {
   display: flex;
+  justify-content: space-between;
+  padding-bottom: 2rem;
   .image {
     position: relative;
     width: 250px;
     height: 250px;
+    min-height: 250px;
+    min-width: 250px;
+    align-self: end;
     @include overall-shadow(3);
   }
   .text {
-    margin-right: 3rem;
-    .title {
-      padding-bottom: 1rem;
+    margin-right: 2rem;
+    > h1 {
+      // padding-bottom: 1rem;
       font-size: 5rem;
     }
     p {
-      font-size: 1.5rem;
+      font-size: 2rem;
     }
   }
 
@@ -23,19 +28,20 @@
     .image {
       width: 500px;
       height: 500px;
+      min-width: 500px;
     }
     .text {
       margin-right: 6rem;
-      .title {
-        padding-bottom: 4rem;
+      > h1 {
+        // padding-bottom: 2rem;
         font-size: 10rem;
       }
       p {
-        font-size: 3rem;
+        font-size: 4rem;
       }
     }
   }
-  @media (max-width: 768px) {
+  @media (max-width: 992px) {
     flex-direction: column-reverse;
     .image {
       width: 500px;
@@ -44,31 +50,57 @@
     .text {
       margin: 0;
       width: 100%;
+      p {
+        font-size: 2.25rem;
+      }
     }
     div {
       margin-bottom: 1rem;
       align-self: center;
     }
   }
-  @media (max-width: 660px) {
+  @media (max-width: 768px) {
+    .image {
+      width: 400px;
+      height: 400px;
+    }
+    .text {
+      // > h1 {
+      //   padding-bottom: 1rem;
+      // }
+      p {
+        font-size: 1.75rem;
+      }
+    }
+  }
+  @media (max-width: 550px) {
+    padding-bottom: 1rem;
     .image {
       width: 300px;
       height: 300px;
     }
     .text {
-      .title {
-        padding-bottom: 0.5rem;
+      > h1 {
+        font-size: 3.5rem;
+        // padding-bottom: 0;
+      }
+      p {
+        font-size: 1.25rem;
+      }
+    }
+  }
+  @media (max-width: 375px) {
+    .image {
+      width: 250px;
+      height: 250px;
+    }
+    .text {
+      > h1 {
         font-size: 2.5rem;
       }
       p {
         font-size: 1rem;
       }
-    }
-  }
-  @media (max-width: 440px) {
-    .image {
-      width: 200px;
-      height: 200px;
     }
   }
 }
