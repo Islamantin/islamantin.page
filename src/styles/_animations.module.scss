@@ -36,18 +36,21 @@
 }
 
 .fadeIn {
-  animation: fadeIn 0.6s ease-out forwards;
   opacity: 0;
+  animation: fadeIn 0.6s ease-out var(--animation-delay, 0s) forwards;
+  animation-play-state: var(--animation-play-state, paused);
 }
 
 .fadeInImage {
-  animation: fadeInImage 0.8s ease-out forwards;
   opacity: 0;
+  animation: fadeInImage 0.8s ease-out var(--animation-delay, 0s) forwards;
+  animation-play-state: var(--animation-play-state, paused);
 }
 
 .fadeInImageWithShadow {
-  animation: fadeInImageWithShadow 0.8s ease-out forwards;
   opacity: 0;
+  animation: fadeInImageWithShadow 0.8s ease-out var(--animation-delay, 0s) forwards;
+  animation-play-state: var(--animation-play-state, paused);
   --shadow-opacity: 0;
   
   // Apply shadow with animated opacity
@@ -57,11 +60,13 @@
 }
 
 .fadeInDelayed {
-  animation: fadeIn 0.6s ease-out 0.2s forwards;
   opacity: 0;
+  animation: fadeIn 0.6s ease-out calc(var(--animation-delay, 0s) + 0.2s) forwards;
+  animation-play-state: var(--animation-play-state, paused);
 }
 
 .fadeInDelayedLong {
-  animation: fadeIn 0.6s ease-out 0.4s forwards;
   opacity: 0;
+  animation: fadeIn 0.6s ease-out calc(var(--animation-delay, 0s) + 0.4s) forwards;
+  animation-play-state: var(--animation-play-state, paused);
 }

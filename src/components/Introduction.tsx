@@ -16,20 +16,28 @@ export default function Introduction(props: IntroductionComponentProps) {
   
   const propsClassName = props.className ? (props.className + " ") : "";
   
+  // Set CSS custom properties for animation control
+  useEffect(() => {
+    const root = document.documentElement;
+    if (fontsLoaded) {
+      root.style.setProperty('--animation-play-state', 'running');
+      root.style.setProperty('--animation-delay', '0s');
+    } else {
+      root.style.setProperty('--animation-play-state', 'paused');
+      root.style.setProperty('--animation-delay', '0s');
+    }
+  }, [fontsLoaded]);
+  
   return (
     <div className={propsClassName + styles.intro}>
       <div className={styles.text}>
-        {fontsLoaded && (
-          <>
-            <h1 className={animations.fadeIn}>Салям</h1>
-            <p className={animations.fadeInDelayed}>
-              My name is Islam.
-              <br />
-              I'm Software Engineer <br />
-              and Designer.
-            </p>
-          </>
-        )}
+        <h1 className={animations.fadeIn}>Салям</h1>
+        <p className={animations.fadeInDelayed}>
+          My name is Islam.
+          <br />
+          I'm Software Engineer <br />
+          and Designer.
+        </p>
       </div>
       <div className={styles.image}>
         <Image
@@ -37,7 +45,7 @@ export default function Introduction(props: IntroductionComponentProps) {
           fill
           alt="It's me"
           onLoad={() => setImageLoaded(true)}
-          className={imageLoaded ? animations.fadeInImageWithShadow : ''}
+          className={animations.fadeInImageWithShadow}
         />
       </div>
     </div>
