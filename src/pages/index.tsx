@@ -1,5 +1,5 @@
 import Head from "next/head";
-import sanityClient from "@sanity/client";
+import { createClient } from "@sanity/client";
 import { useEffect, useState } from "react";
 
 import sanityConfig from "../config/sanity.config";
@@ -8,7 +8,7 @@ import colors from "../styles/_colors.module.scss";
 
 import Main, { MainComponentData } from "../components/Main";
 
-const client = sanityClient(sanityConfig);
+const client = createClient(sanityConfig);
 
 function getRandomColorKey() {
   const colorCollection = colors.keys.split(',');
