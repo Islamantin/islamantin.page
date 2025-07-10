@@ -1,4 +1,5 @@
 import styles from "../styles/ContactDetails.module.scss";
+import animations from "../styles/_animations.module.scss";
 
 interface ContactDetailsComponentProps {
   className?: string;
@@ -13,7 +14,7 @@ export interface ContactDetailsData {
 export default function ContactDetails(props: ContactDetailsComponentProps) {
   const propsClassName = props.className ? (props.className + " ") : "";
   return (
-    <div className={propsClassName + styles.contactDetails} >
+    <div className={propsClassName + styles.contactDetails + " " + animations.fadeInContactDetails} >
       <h2>Contact me</h2>
       <div>
         {props.data?.map((val: ContactDetailsData, ind: number) => (

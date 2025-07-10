@@ -1,6 +1,7 @@
 import regex from "../utils/regex";
 
 import styles from "../styles/Status.module.scss";
+import animations from "../styles/_animations.module.scss";
 
 interface StatusComponentProps {
   className?: string;
@@ -16,7 +17,7 @@ export default function Status(props: StatusComponentProps) {
   const propsClassName = props.className ? (props.className + " ") : "";
   const data = props.data;
   return (
-    <div className={propsClassName + styles.status}>
+    <div className={propsClassName + styles.status + " " + animations.fadeInStatus}>
       <h2>Currently</h2>
       <div>
         {renderLocation(data?.location)}
