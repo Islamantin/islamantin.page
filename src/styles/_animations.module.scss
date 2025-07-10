@@ -1,3 +1,5 @@
+@import "shadows";
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -20,6 +22,19 @@
   }
 }
 
+@keyframes fadeInImageWithShadow {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+    --shadow-opacity: 0;
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+    --shadow-opacity: 1;
+  }
+}
+
 .fadeIn {
   animation: fadeIn 0.6s ease-out forwards;
   opacity: 0;
@@ -28,6 +43,17 @@
 .fadeInImage {
   animation: fadeInImage 0.8s ease-out forwards;
   opacity: 0;
+}
+
+.fadeInImageWithShadow {
+  animation: fadeInImageWithShadow 0.8s ease-out forwards;
+  opacity: 0;
+  --shadow-opacity: 0;
+  
+  // Apply shadow with animated opacity
+  box-shadow: 
+    0 3px 12px rgba(black, calc(0.23 * var(--shadow-opacity))), 
+    0 3px 12px rgba(black, calc(0.16 * var(--shadow-opacity)));
 }
 
 .fadeInDelayed {

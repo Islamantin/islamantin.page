@@ -37,7 +37,7 @@ export default function Introduction(props: IntroductionComponentProps) {
           fill
           alt="It's me"
           onLoad={() => setImageLoaded(true)}
-          className={imageLoaded ? animations.fadeInImage : ''}
+          className={imageLoaded ? animations.fadeInImageWithShadow : ''}
         />
       </div>
     </div>
