@@ -1,5 +1,39 @@
 @import "shadows";
 
+// Animation variables
+$animation-duration: 0.6s;
+$animation-timing: ease-out;
+$animation-fill-mode: forwards;
+$animation-play-state: var(--animation-play-state, paused);
+$base-delay: var(--animation-delay, 0s);
+
+// Mixin for fade-in animations
+@mixin fade-in-animation($delay: 0s) {
+  opacity: 0;
+  animation: fadeIn $animation-duration $animation-timing calc($base-delay + $delay) $animation-fill-mode;
+  animation-play-state: $animation-play-state;
+}
+
+// Mixin for image animations
+@mixin image-animation($delay: 0s) {
+  opacity: 0;
+  animation: fadeInImage 0.8s $animation-timing calc($base-delay + $delay) $animation-fill-mode;
+  animation-play-state: $animation-play-state;
+}
+
+// Mixin for image with shadow animations
+@mixin image-shadow-animation($delay: 0s) {
+  opacity: 0;
+  animation: fadeInImageWithShadow 0.8s $animation-timing calc($base-delay + $delay) $animation-fill-mode;
+  animation-play-state: $animation-play-state;
+  --shadow-opacity: 0;
+  
+  // Apply shadow with animated opacity
+  box-shadow: 
+    0 3px 12px rgba(black, calc(0.23 * var(--shadow-opacity))), 
+    0 3px 12px rgba(black, calc(0.16 * var(--shadow-opacity)));
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -35,56 +69,35 @@
   }
 }
 
+// Animation classes using mixins
 .fadeIn {
-  opacity: 0;
-  animation: fadeIn 0.6s ease-out var(--animation-delay, 0s) forwards;
-  animation-play-state: var(--animation-play-state, paused);
+  @include fade-in-animation();
 }
 
 .fadeInImage {
-  opacity: 0;
-  animation: fadeInImage 0.8s ease-out var(--animation-delay, 0s) forwards;
-  animation-play-state: var(--animation-play-state, paused);
+  @include image-animation();
 }
 
 .fadeInImageWithShadow {
-  opacity: 0;
-  animation: fadeInImageWithShadow 0.8s ease-out var(--animation-delay, 0s) forwards;
-  animation-play-state: var(--animation-play-state, paused);
-  --shadow-opacity: 0;
-  
-  // Apply shadow with animated opacity
-  box-shadow: 
-    0 3px 12px rgba(black, calc(0.23 * var(--shadow-opacity))), 
-    0 3px 12px rgba(black, calc(0.16 * var(--shadow-opacity)));
+  @include image-shadow-animation();
 }
 
 .fadeInDelayed {
-  opacity: 0;
-  animation: fadeIn 0.6s ease-out calc(var(--animation-delay, 0s) + 0.2s) forwards;
-  animation-play-state: var(--animation-play-state, paused);
+  @include fade-in-animation(0.2s);
 }
 
 .fadeInDelayedLong {
-  opacity: 0;
-  animation: fadeIn 0.6s ease-out calc(var(--animation-delay, 0s) + 0.4s) forwards;
-  animation-play-state: var(--animation-play-state, paused);
+  @include fade-in-animation(0.4s);
 }
 
 .fadeInTools {
-  opacity: 0;
-  animation: fadeIn 0.6s ease-out calc(var(--animation-delay, 0s) + 0.5s) forwards;
-  animation-play-state: var(--animation-play-state, paused);
+  @include fade-in-animation(0.5s);
 }
 
 .fadeInStatus {
-  opacity: 0;
-  animation: fadeIn 0.6s ease-out calc(var(--animation-delay, 0s) + 0.6s) forwards;
-  animation-play-state: var(--animation-play-state, paused);
+  @include fade-in-animation(0.6s);
 }
 
 .fadeInContactDetails {
-  opacity: 0;
-  animation: fadeIn 0.6s ease-out calc(var(--animation-delay, 0s) + 0.8s) forwards;
-  animation-play-state: var(--animation-play-state, paused);
+  @include fade-in-animation(0.8s);
 }
