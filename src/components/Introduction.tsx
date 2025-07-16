@@ -31,7 +31,7 @@ export default function Introduction(props: IntroductionComponentProps) {
   return (
     <div className={propsClassName + styles.intro}>
       <div className={styles.text}>
-        <h1 className={animations.fadeIn}>Салям</h1>
+        <h1 className={animations.fadeIn}>Саләм</h1>
         <p className={animations.fadeInDelayed}>
           My name is Islam.
           <br />
