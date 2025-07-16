@@ -3,7 +3,7 @@
 .intro {
   display: flex;
   justify-content: space-between;
-  padding-bottom: 2rem;
+  padding-bottom: 2.5rem;
   .image {
     position: relative;
     width: 250px;
@@ -13,13 +13,16 @@
     align-self: end;
   }
   .text {
-    margin-right: 2rem;
+    margin-right: 2.5rem;
     > h1 {
-      // padding-bottom: 1rem;
-      font-size: 5rem;
+      font-size: 4.5rem;
+      margin-bottom: 1rem;
+      line-height: 1.1;
     }
     p {
-      font-size: 2rem;
+      font-size: 1.8rem;
+      line-height: 1.4;
+      margin-top: 0.5rem;
     }
   }
 
@@ -32,16 +35,18 @@
     .text {
       margin-right: 6rem;
       > h1 {
-        // padding-bottom: 2rem;
-        font-size: 10rem;
+        font-size: 9rem;
+        margin-bottom: 2rem;
       }
       p {
-        font-size: 4rem;
+        font-size: 3.5rem;
+        margin-top: 1rem;
       }
     }
   }
   @media (max-width: 992px) {
     flex-direction: column-reverse;
+    padding-bottom: 2rem;
     .image {
       width: 500px;
       height: 500px;
@@ -49,12 +54,17 @@
     .text {
       margin: 0;
       width: 100%;
+      text-align: center;
+      > h1 {
+        margin-bottom: 1.5rem;
+      }
       p {
-        font-size: 2.25rem;
+        font-size: 2rem;
+        margin-top: 0.75rem;
       }
     }
     div {
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
       align-self: center;
     }
   }
@@ -64,27 +74,30 @@
       height: 400px;
     }
     .text {
-      // > h1 {
-      //   padding-bottom: 1rem;
-      // }
+      > h1 {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+      }
       p {
-        font-size: 1.75rem;
+        font-size: 1.6rem;
+        margin-top: 0.5rem;
       }
     }
   }
   @media (max-width: 550px) {
-    padding-bottom: 1rem;
+    padding-bottom: 1.5rem;
     .image {
       width: 300px;
       height: 300px;
     }
     .text {
       > h1 {
-        font-size: 3.5rem;
-        // padding-bottom: 0;
+        font-size: 3rem;
+        margin-bottom: 0.75rem;
       }
       p {
-        font-size: 1.25rem;
+        font-size: 1.4rem;
+        margin-top: 0.5rem;
       }
     }
   }
@@ -95,10 +108,12 @@
     }
     .text {
       > h1 {
-        font-size: 2.5rem;
+        font-size: 2.25rem;
+        margin-bottom: 0.5rem;
       }
       p {
-        font-size: 1rem;
+        font-size: 1.1rem;
+        margin-top: 0.25rem;
       }
     }
   }
