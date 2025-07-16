@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @use 'colors.module';
 
 * {
@@ -8,7 +9,7 @@
 body {
   padding: 0 2rem;
   margin: auto;
-  font-family: Unbounded;
+  font-family: 'Philosopher', serif;
   color: black;
   transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
 }
@@ -35,13 +36,4 @@ a {
       @include colors.bg-color-dark($color);
     }
   }
-}
-
-@font-face {
-  font-family: "Unbounded";
-  src: url("../../asset/Unbounded/Unbounded-Light.ttf");
-  src: url("../../asset/Unbounded/Unbounded-Regular.ttf");
-  src: url("../../asset/Unbounded/Unbounded-SemiBold.ttf");
-  font-weight: 300;
-  font-style: normal;
 }
