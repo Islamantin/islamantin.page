@@ -3,8 +3,8 @@ import Image from "next/image";
 import styles from "../styles/Introduction.module.scss";
 
 interface IntroductionComponentProps {
-  className?: string,
-  colorKey: string | null
+  className?: string;
+  colorKey: string | null;
 }
 
 export default function Introduction(props: IntroductionComponentProps) {
@@ -14,7 +14,7 @@ export default function Introduction(props: IntroductionComponentProps) {
   //     setNameStyles(nameStyles + " color-" + props.colorKey);
   //   }
   // }, [props.colorKey]);
-  const propsClassName = props.className ? (props.className + " ") : "";
+  const propsClassName = props.className ? props.className + " " : "";
   return (
     <div className={propsClassName + styles.intro}>
       <div className={styles.text}>
@@ -27,11 +27,7 @@ export default function Introduction(props: IntroductionComponentProps) {
         </p>
       </div>
       <div className={styles.image}>
-        <Image
-          src="/me.jpg"
-          fill
-          alt="It's me"
-        ></Image>
+        <Image src="/me.jpg" fill alt="It's me"></Image>
       </div>
     </div>
   );
