@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { createClient } from "@sanity/client";
+import createClient from "@sanity/client";
 import { useEffect, useState } from "react";
 
 import sanityConfig from "../config/sanity.config";
@@ -43,7 +43,8 @@ export default function Home(props: HomePageProps) {
     <>
       <Head>
         <title>Islam Antin</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="alternate icon" href="/favicon.ico" />
       </Head>
       <Main data={mainData} colorKey={mainColorKey as string} />
     </>

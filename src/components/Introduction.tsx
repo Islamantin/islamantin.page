@@ -6,8 +6,8 @@ import animations from "../styles/_animations.module.scss";
 import { useFontLoaded } from "../utils/useFontLoaded";
 
 interface IntroductionComponentProps {
-  className?: string,
-  colorKey: string | null
+  className?: string;
+  colorKey: string | null;
 }
 
 export default function Introduction(props: IntroductionComponentProps) {

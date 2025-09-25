@@ -6,6 +6,9 @@
     > div {
         display: flex;
         justify-content: space-evenly;
+        > a {
+            width: 250px;
+        }
     }
     @media (max-width: 550px) {
         padding-top: 1.5rem;
