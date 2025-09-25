@@ -1,4 +1,5 @@
 import styles from "../styles/Tools.module.scss";
+import animations from "../styles/_animations.module.scss";
 
 interface ToolsComponentProps {
   data: {
@@ -9,7 +10,7 @@ interface ToolsComponentProps {
 
 export default function Tools(props: ToolsComponentProps) {
   return (
-    <div className={styles.tools}>
+    <div className={styles.tools + " " + animations.fadeInTools}>
       <h2>My tools are</h2>
       <div className={styles.scroll}>
         {props.data.map((block, blockInd) => (
