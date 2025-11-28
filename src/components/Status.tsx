@@ -1,6 +1,5 @@
 import regex from "../utils/regex";
 
-import styles from "../styles/Status.module.scss";
 import animations from "../styles/_animations.module.scss";
 
 interface StatusComponentProps {
@@ -14,12 +13,22 @@ export interface StatusComponentData {
 }
 
 export default function Status(props: StatusComponentProps) {
-  const propsClassName = props.className ? (props.className + " ") : "";
   const data = props.data;
+  const baseClassName =
+    "w-full text-right space-y-4 phone:space-y-6 lap:space-y-8";
+  const rootClassName = [
+    props.className,
+    baseClassName,
+    animations.fadeInStatus,
+  ]
+    .filter(Boolean)
+    .join(" ");
   return (
-    <div className={propsClassName + styles.status + " " + animations.fadeInStatus}>
-      <h2>Currently</h2>
-      <div>
+    <div className={rootClassName}>
+      <h2 className="font-semibold text-[18px] lap:text-[24px] 3xl:text-[44px]">
+        Currently
+      </h2>
+      <div className="space-y-3 text-[20px] lap:text-[27.5px] 3xl:text-[48px]">
         {renderLocation(data?.location)}
         {renderEmployment(data?.employment)}
       </div>
