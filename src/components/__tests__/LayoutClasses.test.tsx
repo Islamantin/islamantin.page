@@ -54,7 +54,7 @@ describe("Layout styling", () => {
 
     const emailLink = screen.getByRole("link", { name: /email/i });
     expect(emailLink.className).toContain("min-w-[250px]");
-    expect(emailLink.className).toContain("text-lg");
+    expect(emailLink.className).toContain("text-[20px]");
   });
 
   it("merges custom class names with Introduction defaults", () => {

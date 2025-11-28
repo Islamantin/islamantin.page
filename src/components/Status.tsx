@@ -25,10 +25,10 @@ export default function Status(props: StatusComponentProps) {
     .join(" ");
   return (
     <div className={rootClassName}>
-      <h2 className="text-2xl font-semibold phone:text-3xl lap:text-4xl 3xl:text-[2.75rem]">
+      <h2 className="font-semibold text-[18px] lap:text-[24px] 3xl:text-[44px]">
         Currently
       </h2>
-      <div className="space-y-3 text-lg phone:text-xl lap:text-2xl desk:text-[1.7rem] 3xl:text-3xl">
+      <div className="space-y-3 text-[20px] lap:text-[27.5px] 3xl:text-[48px]">
         {renderLocation(data?.location)}
         {renderEmployment(data?.employment)}
       </div>

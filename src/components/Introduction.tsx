@@ -33,7 +33,7 @@ export default function Introduction(props: IntroductionComponentProps) {
 
   return (
     <div className={rootClassName}>
-      <div className="w-full text-center lap:mr-8 lap:text-left">
+      <div className="w-full text-left lap:mr-8">
         <h1
           className={`${animations.fadeIn} text-[2.5rem] phone:text-[3.5rem] lap:text-[5rem] desk:text-[6rem] 3xl:text-[10rem]`}
         >
@@ -48,13 +48,13 @@ export default function Introduction(props: IntroductionComponentProps) {
           and Designer.
         </p>
       </div>
-      <div className="relative mx-auto aspect-square w-[250px] min-h-[250px] min-w-[250px] self-center phone:w-[300px] phone:min-h-[300px] phone:min-w-[300px] tablet:w-[400px] tablet:min-h-[400px] tablet:min-w-[400px] lap:w-[450px] lap:min-h-[450px] lap:min-w-[450px] lap:self-end desk:w-[500px] desk:min-h-[500px] desk:min-w-[500px] 3xl:w-[500px] 3xl:min-h-[500px] 3xl:min-w-[500px]">
+      <div className="relative mx-auto aspect-square w-[250px] min-h-[250px] min-w-[250px] self-center lap:self-end 3xl:w-[500px] 3xl:min-h-[500px] 3xl:min-w-[500px]">
         <Image
           src="/me.jpg"
           fill
           alt="It's me"
           onLoad={() => setImageLoaded(true)}
-          className={`${animations.fadeInImageWithShadow} rounded-[1.5rem] object-cover`}
+          className={`${animations.fadeInImageWithShadow} object-cover`}
         />
       </div>
     </div>

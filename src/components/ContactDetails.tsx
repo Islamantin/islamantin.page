@@ -22,17 +22,17 @@ export default function ContactDetails(props: ContactDetailsComponentProps) {
     .join(" ");
   return (
     <div className={rootClassName}>
-      <h2 className="text-2xl font-semibold phone:text-3xl lap:text-4xl 3xl:text-[2.75rem]">
+      <h2 className="font-semibold text-[18px] lap:text-[24px] 3xl:text-[44px]">
         Contact me
       </h2>
-      <div className="mt-6 flex flex-wrap items-center justify-evenly gap-4 phone:gap-6 lap:gap-8 desk:gap-12 3xl:gap-16">
+      <div className="mt-6 flex flex-nowrap items-center justify-evenly gap-4 overflow-x-auto phone:gap-6 lap:gap-8 desk:gap-12 3xl:gap-16 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
         {props.data?.map((val: ContactDetailsData, ind: number) => (
           <a
             key={ind}
             href={val.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex min-w-[250px] justify-center text-lg phone:text-xl lap:text-2xl desk:text-[1.7rem] 3xl:text-[3rem] transition-colors duration-200 hover:underline"
+            className="inline-flex min-w-[250px] justify-center whitespace-nowrap text-[20px] lap:text-[27.5px] 3xl:text-[48px] transition-colors duration-200 hover:underline"
           >
             {val.lable}
           </a>

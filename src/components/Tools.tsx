@@ -10,7 +10,7 @@ interface ToolsComponentProps {
 
 export default function Tools(props: ToolsComponentProps) {
   const baseClassName =
-    "w-full text-center space-y-6 phone:space-y-8 lap:space-y-10";
+    "w-full space-y-6 text-left phone:space-y-8 lap:space-y-10";
   const rootClassName = [
     props.className,
     baseClassName,
@@ -20,10 +20,10 @@ export default function Tools(props: ToolsComponentProps) {
     .join(" ");
   return (
     <div className={rootClassName}>
-      <h2 className="text-2xl font-semibold phone:text-3xl lap:text-4xl 3xl:text-[2.75rem]">
+      <h2 className="font-semibold text-[18px] lap:text-[24px] 3xl:text-[44px]">
         My tools are
       </h2>
-      <div className="flex gap-8 overflow-x-auto pb-2 text-lg phone:text-xl lap:text-2xl desk:text-[1.7rem] 3xl:text-3xl [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+      <div className="flex gap-8 overflow-x-auto pb-2 text-[20px] lap:text-[27.5px] 3xl:text-[48px] [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
         {props.data.map((block, blockInd) => (
           <ul
             key={blockInd}
